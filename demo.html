@@ -189,7 +189,7 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.51);
+            background: rgba(0, 0, 0, 0.69);
         }
         #model > .red_bag > img{
             width: 100%;
@@ -202,15 +202,49 @@
             opacity: 1;
             width: 10rem;
             height: 10rem;
+        }
+        .red_bag:nth-of-type(1){
             left: 15rem;
             bottom: 100rem;
-            animation: bag_rain 5s infinite linear;
-            -moz-animation: bag_rain 5s infinite linear; /* Firefox */
-            -webkit-animation: bag_rain 5s infinite linear; /* Safari and Chrome */
-            -o-animation: bag_rain 5s infinite linear; /* Opera */
+            animation: bag_rain_a 5s infinite linear;
+            -moz-animation: bag_rain_a 5s infinite linear; /* Firefox */
+            -webkit-animation: bag_rain_a 5s infinite linear; /* Safari and Chrome */
+            -o-animation: bag_rain_a 5s infinite linear; /* Opera */
+        }
+        .red_bag:nth-of-type(2){
+            left: 30rem;
+            bottom: 75rem;
+            animation: bag_rain_b 5s infinite linear;
+            -moz-animation: bag_rain_b 5s infinite linear; /* Firefox */
+            -webkit-animation: bag_rain_b 5s infinite linear; /* Safari and Chrome */
+            -o-animation: bag_rain_b 5s infinite linear; /* Opera */
+        }
+        .red_bag:nth-of-type(3){
+            left: 45rem;
+            bottom: 50rem;
+            animation: bag_rain_c 5s infinite linear;
+            -moz-animation: bag_rain_c 5s infinite linear; /* Firefox */
+            -webkit-animation: bag_rain_c 5s infinite linear; /* Safari and Chrome */
+            -o-animation: bag_rain_c 5s infinite linear; /* Opera */
+        }
+        .red_bag:nth-of-type(4){
+            left: 60rem;
+            bottom: 30rem;
+            animation: bag_rain_d 5s infinite linear;
+            -moz-animation: bag_rain_d 5s infinite linear; /* Firefox */
+            -webkit-animation: bag_rain_d 5s infinite linear; /* Safari and Chrome */
+            -o-animation: bag_rain_d 5s infinite linear; /* Opera */
+        }
+        .red_bag:nth-of-type(5){
+            left: 75rem;
+            bottom: 10rem;
+            animation: bag_rain_e 5s infinite linear;
+            -moz-animation: bag_rain_e 5s infinite linear; /* Firefox */
+            -webkit-animation: bag_rain_e 5s infinite linear; /* Safari and Chrome */
+            -o-animation: bag_rain_e 5s infinite linear; /* Opera */
         }
 
-        @keyframes bag_rain {
+        @keyframes bag_rain_a {
             0% {
                 bottom: 100rem;
             }
@@ -218,11 +252,70 @@
                 bottom: -10rem;
             }
         }
-
+        @keyframes bag_rain_b {
+            0% {
+                bottom: 75rem;
+            }
+            75%{
+                bottom: -10rem;
+            }
+            76%{
+                bottom: 100rem;
+            }
+            100% {
+                bottom: 75rem;
+            }
+        }
+        @keyframes bag_rain_c {
+            0% {
+                bottom: 50rem;
+            }
+            50%{
+                bottom: -10rem;
+            }
+            51%{
+                bottom: 100rem;
+            }
+            100% {
+                bottom: 50rem;
+            }
+        }
+        @keyframes bag_rain_d {
+            0% {
+                bottom: 30rem;
+            }
+            30%{
+                bottom: -10rem;
+            }
+            31%{
+                bottom: 100rem;
+            }
+            100% {
+                bottom: 30rem;
+            }
+        }
+        @keyframes bag_rain_e {
+            0% {
+                bottom: 10rem;
+            }
+            10%{
+                bottom: -10rem;
+            }
+            11%{
+                bottom: 100rem;
+            }
+            100% {
+                bottom: 10rem;
+            }
+        }
     </style>
 </head>
 <body id="app">
 <div id="model" v-if="money_show">
+    <div class="red_bag"><img src="img/red.png"></div>
+    <div class="red_bag"><img src="img/red.png"></div>
+    <div class="red_bag"><img src="img/red.png"></div>
+    <div class="red_bag"><img src="img/red.png"></div>
     <div class="red_bag"><img src="img/red.png"></div>
 </div>
 <div class="bottle_container">
