@@ -16,23 +16,23 @@
     <div @touchstart="open_bag" class="big_red_bag"></div>
 </div>
 <div class="bottle_container">
-    <img id="jiaoshui" src="static/img/watering_can.png">
-    <img id="shuidi" src="static/img/water.png">
+    <img id="watering_can" src="static/img/watering_can.png">
+    <img id="water" src="static/img/water.png">
 </div>
 <div class="container">
     <div class="tree_container">
         <img src="static/img/christmas_tree.png">
     </div>
     <div class="btn_container">
-        <a @touchstart="watering" id="jiao">浇水</a>
-        <a @touchstart="money_come">发红包</a>
+        <a @tap="watering" id="jiao">浇水</a>
+        <a @tap="money_come">发红包</a>
     </div>
 </div>
 </body>
 <script src="dist/ThreeCanvas.js"></script>
 <script src="dist/Snow.js"></script>
 <script
-    src="https://fes.wemomo.com/static/dev.js?m=zepto,zepto.fx,mm/mkBridge,mm/mock-2.0,vue-1.0.24,mt.alert,mt.confirm,mt.loading-2.0,mt.notice"></script>
+    src="https://fes.wemomo.com/static/dev.js?m=zepto,zepto.fx,zepto.touch,mm/mkBridge,mm/mock-2.0,vue-1.0.24,mt.alert,mt.confirm,mt.loading-2.0,mt.notice"></script>
 <script src="dist/xuehua.js"></script>
 <script>
     new Vue({
@@ -52,8 +52,8 @@
                     this.btn_false = 1;
                     var _bottle = $('.bottle_container');
                     _bottle.show();
-                    $('#jiaoshui').addClass("watering");
-                    $('#shuidi').addClass("water_down");
+                    $('#watering_can').addClass("watering");
+                    $('#water').addClass("water_down");
                     setTimeout(this.bottle_hide, 2900)
                 }
             },
