@@ -81,15 +81,15 @@
         }
 
         .bottle_container {
-            display: none;
+            z-index: 1000;
             position: absolute;
-            width: 16rem;
-            right: 8rem;
+            width: 20rem;
+            right: 15rem;
+            display: none;
         }
 
         .bottle_container > #jiaoshui {
             width: 100%;
-            padding-left: 3rem;
         }
 
         .bottle_container > .jiaoshuizhong {
@@ -130,6 +130,7 @@
         }
 
         .bottle_container > #shuidi {
+            padding-top: 4rem;
             width: 40%;
         }
 
@@ -190,137 +191,44 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.69);
+            display: none;
         }
         #model > .red_bag > img{
             width: 100%;
             height: 100%;
+            vertical-align: middle;
         }
 
         #model > .red_bag {
             display: inline-block;
             position: absolute;
-            opacity: 1;
             width: 10rem;
-            height: 10rem;
+            height: 13rem;
+            background: url("img/红包.png") no-repeat;
+            background-size: 100%;
         }
-        .red_bag:nth-of-type(1){
-            left: 15rem;
-            bottom: 100rem;
-            animation: bag_rain_a 5s infinite linear;
-            -moz-animation: bag_rain_a 5s infinite linear; /* Firefox */
-            -webkit-animation: bag_rain_a 5s infinite linear; /* Safari and Chrome */
-            -o-animation: bag_rain_a 5s infinite linear; /* Opera */
-        }
-        .red_bag:nth-of-type(2){
-            left: 30rem;
-            bottom: 75rem;
-            animation: bag_rain_b 5s infinite linear;
-            -moz-animation: bag_rain_b 5s infinite linear; /* Firefox */
-            -webkit-animation: bag_rain_b 5s infinite linear; /* Safari and Chrome */
-            -o-animation: bag_rain_b 5s infinite linear; /* Opera */
-        }
-        .red_bag:nth-of-type(3){
-            left: 45rem;
-            bottom: 50rem;
-            animation: bag_rain_c 5s infinite linear;
-            -moz-animation: bag_rain_c 5s infinite linear; /* Firefox */
-            -webkit-animation: bag_rain_c 5s infinite linear; /* Safari and Chrome */
-            -o-animation: bag_rain_c 5s infinite linear; /* Opera */
-        }
-        .red_bag:nth-of-type(4){
-            left: 60rem;
-            bottom: 30rem;
-            animation: bag_rain_d 5s infinite linear;
-            -moz-animation: bag_rain_d 5s infinite linear; /* Firefox */
-            -webkit-animation: bag_rain_d 5s infinite linear; /* Safari and Chrome */
-            -o-animation: bag_rain_d 5s infinite linear; /* Opera */
-        }
-        .red_bag:nth-of-type(5){
-            left: 75rem;
-            bottom: 10rem;
-            animation: bag_rain_e 5s infinite linear;
-            -moz-animation: bag_rain_e 5s infinite linear; /* Firefox */
-            -webkit-animation: bag_rain_e 5s infinite linear; /* Safari and Chrome */
-            -o-animation: bag_rain_e 5s infinite linear; /* Opera */
-        }
-
-        @keyframes bag_rain_a {
-            0% {
-                bottom: 100rem;
-            }
-            100% {
-                bottom: -10rem;
-            }
-        }
-        @keyframes bag_rain_b {
-            0% {
-                bottom: 75rem;
-            }
-            75%{
-                bottom: -10rem;
-            }
-            76%{
-                bottom: 100rem;
-            }
-            100% {
-                bottom: 75rem;
-            }
-        }
-        @keyframes bag_rain_c {
-            0% {
-                bottom: 50rem;
-            }
-            50%{
-                bottom: -10rem;
-            }
-            51%{
-                bottom: 100rem;
-            }
-            100% {
-                bottom: 50rem;
-            }
-        }
-        @keyframes bag_rain_d {
-            0% {
-                bottom: 30rem;
-            }
-            30%{
-                bottom: -10rem;
-            }
-            31%{
-                bottom: 100rem;
-            }
-            100% {
-                bottom: 30rem;
-            }
-        }
-        @keyframes bag_rain_e {
-            0% {
-                bottom: 10rem;
-            }
-            10%{
-                bottom: -10rem;
-            }
-            11%{
-                bottom: 100rem;
-            }
-            100% {
-                bottom: 10rem;
-            }
+        #model > .big_red_bag {
+            display: table-cell;
+            position: absolute;
+            width: 40rem;
+            height: 50rem;
+            margin: auto;
+            background: url("img/红包.png") no-repeat;
+            background-size: 100%;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
         }
     </style>
 </head>
 <body id="app">
-<div id="model" v-if="money_show">
-    <div class="red_bag"><img src="img/red.png"></div>
-    <div class="red_bag"><img src="img/red.png"></div>
-    <div class="red_bag"><img src="img/red.png"></div>
-    <div class="red_bag"><img src="img/red.png"></div>
-    <div class="red_bag"><img src="img/red.png"></div>
+<div id="model">
+    <div @touchstart="open_bag" class="big_red_bag"></div>
 </div>
 <div class="bottle_container">
-    <img id="jiaoshui" src="img/watering_can.png">
-    <img id="shuidi" src="img/r_水滴.png">
+    <img id="jiaoshui" src="img/洒水壶.png">
+    <img id="shuidi" src="img/水滴.png">
 </div>
 <div class="container">
     <div class="tree_container">
@@ -336,22 +244,18 @@
 <script src="dist/ThreeCanvas.js"></script>
 <script src="dist/Snow.js"></script>
 <script
-    src="https://fes.wemomo.com/static/dev.js?m=zepto,mm/mkBridge,mm/mock-2.0,vue-1.0.24,mt.alert,mt.confirm,mt.loading-2.0,mt.notice"></script>
+    src="https://fes.wemomo.com/static/dev.js?m=zepto,zepto.fx,mm/mkBridge,mm/mock-2.0,vue-1.0.24,mt.alert,mt.confirm,mt.loading-2.0,mt.notice"></script>
 <script src="dist/xuehua.js"></script>
 <script>
     new Vue({
         el: '#app',
         data: {
-            btn_false: 0,
-            money_show: 0
+            btn_false: 0   //防止多次点击animation崩溃
         },
         ready: function () {
             init();
         },
         methods: {
-            money_come: function () {
-                this.money_show = 1;
-            },
             watering: function () {
                 if (this.btn_false) {
                     console.log(2)
@@ -368,10 +272,26 @@
             bottle_hide: function () {
                 $('.bottle_container').hide();
                 this.btn_false = 0;
+            },
+            money_come: function () {
+                $('#model').show();
+                this.Timerr = setInterval(this.red_bag_rain,500);
+            },
+            red_bag_rain: function () {
+                for(var i=0;i<4;i++){
+                    var _model = $('#model');
+                    var x=parseInt(Math.random()*1000);
+                    var y=parseInt(Math.random()*1500);
+                    _model.prepend('<div class="red_bag"></div>');
+                    _model.children('div').eq(0).css({'left':x,'top':y});
+                    _model.children('div').eq(0).animate({top:$(window).height()+20},3000);
+                }
+            },
+            open_bag: function () {
+                clearInterval(this.Timerr);
+                alert('中奖')
             }
         }
     });
-
-
 </script>
 </html>
