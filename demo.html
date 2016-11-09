@@ -3,243 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>圣诞礼物</title>
-    <style>
-        body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            background: #ff6c52;
-        }
-
-        .container {
-            width: 100%;
-            position: absolute;
-        }
-
-        .tree_container {
-            width: 100%;
-            padding-top: 5rem;
-            position: absolute;
-            animation: tree_shake 5s infinite linear;
-            -moz-animation: tree_shake 5s infinite linear; /* Firefox */
-            -webkit-animation: tree_shake 5s infinite linear; /* Safari and Chrome */
-            -o-animation: tree_shake 5s infinite linear; /* Opera */
-        }
-
-        .tree_container img {
-            width: 100%;
-        }
-
-        @keyframes tree_shake {
-            0% {
-                transform: rotate(0deg);
-                -ms-transform: rotate(0deg); /* IE 9 */
-                -moz-transform: rotate(0deg); /* Firefox */
-                -webkit-transform: rotate(0deg); /* Safari 和 Chrome */
-                -o-transform: rotate(0deg); /* Opera */
-            }
-
-            5% {
-                transform: rotate(5deg);
-                -ms-transform: rotate(5deg); /* IE 9 */
-                -moz-transform: rotate(5deg); /* Firefox */
-                -webkit-transform: rotate(5deg); /* Safari 和 Chrome */
-                -o-transform: rotate(5deg); /* Opera */
-            }
-
-            10% {
-                transform: rotate(-5deg);
-                -ms-transform: rotate(-5deg); /* IE 9 */
-                -moz-transform: rotate(-5deg); /* Firefox */
-                -webkit-transform: rotate(-5deg); /* Safari 和 Chrome */
-                -o-transform: rotate(-5deg); /* Opera */
-            }
-
-            20% {
-                transform: rotate(5deg);
-                -ms-transform: rotate(5deg); /* IE 9 */
-                -moz-transform: rotate(5deg); /* Firefox */
-                -webkit-transform: rotate(5deg); /* Safari 和 Chrome */
-                -o-transform: rotate(5deg); /* Opera */
-            }
-
-            30% {
-                transform: rotate(-5deg);
-                -ms-transform: rotate(-5deg); /* IE 9 */
-                -moz-transform: rotate(-5deg); /* Firefox */
-                -webkit-transform: rotate(-5deg); /* Safari 和 Chrome */
-                -o-transform: rotate(-5deg); /* Opera */
-            }
-
-            40% {
-                transform: rotate(0deg);
-                -ms-transform: rotate(0deg); /* IE 9 */
-                -moz-transform: rotate(0deg); /* Firefox */
-                -webkit-transform: rotate(0deg); /* Safari 和 Chrome */
-                -o-transform: rotate(0deg); /* Opera */
-            }
-        }
-
-        .bottle_container {
-            z-index: 1000;
-            position: absolute;
-            width: 20rem;
-            right: 15rem;
-            display: none;
-        }
-
-        .bottle_container > #jiaoshui {
-            width: 100%;
-        }
-
-        .bottle_container > .jiaoshuizhong {
-            animation: bottle_rotate 3s;
-            -moz-animation: bottle_rotate 3s; /* Firefox */
-            -webkit-animation: bottle_rotate 3s; /* Safari and Chrome */
-            -o-animation: bottle_rotate 3s; /* Opera */
-        }
-
-        @keyframes bottle_rotate {
-            0% {
-                opacity: 0
-            }
-            30% {
-                opacity: 1;
-                transform: rotate(0deg);
-                -ms-transform: rotate(0deg); /* IE 9 */
-                -moz-transform: rotate(0deg); /* Firefox */
-                -webkit-transform: rotate(0deg); /* Safari 和 Chrome */
-                -o-transform: rotate(0deg); /* Opera */
-            }
-            40% {
-                opacity: 1;
-                transform: rotate(-25deg);
-                -ms-transform: rotate(-25deg); /* IE 9 */
-                -moz-transform: rotate(-25deg); /* Firefox */
-                -webkit-transform: rotate(-25deg); /* Safari 和 Chrome */
-                -o-transform: rotate(-25deg); /* Opera */
-            }
-            100% {
-                opacity: 0;
-                transform: rotate(-25deg);
-                -ms-transform: rotate(-25deg); /* IE 9 */
-                -moz-transform: rotate(-25deg); /* Firefox */
-                -webkit-transform: rotate(-25deg); /* Safari 和 Chrome */
-                -o-transform: rotate(-25deg); /* Opera */
-            }
-        }
-
-        .bottle_container > #shuidi {
-            padding-top: 4rem;
-            width: 40%;
-        }
-
-        .shuidixia {
-            position: relative;
-            animation: shuidiluoxia 3s;
-            -moz-animation: shuidiluoxia 3s; /* Firefox */
-            -webkit-animation: shuidiluoxia 3s; /* Safari and Chrome */
-            -o-animation: shuidiluoxia 3s; /* Opera */
-        }
-
-        @keyframes shuidiluoxia {
-            0% {
-                opacity: 0;
-                top: -3rem;
-            }
-            30% {
-                opacity: 0;
-                top: -3rem;
-            }
-            60% {
-                opacity: 1;
-                top: -3rem;
-            }
-            80% {
-                opacity: 1;
-                top: 5rem;
-            }
-            100% {
-                opacity: 0;
-                top: 5rem;
-            }
-        }
-
-        .btn_container {
-            top: 66rem;
-            z-index: 200;
-            position: relative;
-            text-align: center;
-            width: 100%;
-        }
-
-        .btn_container > a {
-            display: inline-block;
-            position: relative;
-            background: #635d60;
-            color: white;
-            width: 15rem;
-            height: 7rem;
-            font-size: 3rem;
-            border-radius: 2rem;
-            line-height: 7rem;
-        }
-
-        #model {
-            z-index: 1000;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.69);
-            display: none;
-        }
-        #model > .red_bag > img{
-            width: 100%;
-            height: 100%;
-            vertical-align: middle;
-        }
-
-        #model > .red_bag {
-            display: inline-block;
-            position: absolute;
-            width: 10rem;
-            height: 13rem;
-            background: url("img/红包.png") no-repeat;
-            background-size: 100%;
-        }
-        #model > .big_red_bag {
-            display: table-cell;
-            position: absolute;
-            width: 40rem;
-            height: 50rem;
-            margin: auto;
-            background: url("img/红包.png") no-repeat;
-            background-size: 100%;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-        }
-    </style>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://fes.wemomo.com/static/dev.css?m=ui.reset,ui.commonList,ui.commonSec,ui.btns,ui.popup,ui.icons"/>
+    <link rel="stylesheet" href="static/css/christmas_gift.css">
 </head>
 <body id="app">
 <div id="model">
     <div @touchstart="open_bag" class="big_red_bag"></div>
 </div>
 <div class="bottle_container">
-    <img id="jiaoshui" src="img/洒水壶.png">
-    <img id="shuidi" src="img/水滴.png">
+    <img id="jiaoshui" src="static/img/watering_can.png">
+    <img id="shuidi" src="static/img/water.png">
 </div>
 <div class="container">
     <div class="tree_container">
-        <img src="图片%201.png">
+        <img src="static/img/christmas_tree.png">
     </div>
     <div class="btn_container">
         <a @touchstart="watering" id="jiao">浇水</a>
         <a @touchstart="money_come">发红包</a>
     </div>
 </div>
-
 </body>
 <script src="dist/ThreeCanvas.js"></script>
 <script src="dist/Snow.js"></script>
@@ -264,8 +52,8 @@
                     this.btn_false = 1;
                     var _bottle = $('.bottle_container');
                     _bottle.show();
-                    $('#jiaoshui').addClass("jiaoshuizhong");
-                    $('#shuidi').addClass("shuidixia");
+                    $('#jiaoshui').addClass("watering");
+                    $('#shuidi').addClass("water_down");
                     setTimeout(this.bottle_hide, 2900)
                 }
             },
@@ -289,7 +77,14 @@
             },
             open_bag: function () {
                 clearInterval(this.Timerr);
-                alert('中奖')
+                $.alert({
+                    content:'这是一个提示',
+                    callback:function(){
+                        $('#model').hide();
+                    },
+                    title:'标题',
+                    btn:'按钮文本'
+                });
             }
         }
     });
