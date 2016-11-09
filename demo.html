@@ -38,6 +38,8 @@
     new Vue({
         el: '#app',
         data: {
+            watering_num: 1,
+            watering_num_back: 1,
             btn_false: 0   //防止多次点击animation崩溃
         },
         ready: function () {
@@ -48,6 +50,7 @@
                 if (this.btn_false) {
                     console.log(2)
                 } else {
+                    this.watering_num_back = this.watering_num -1;
                     console.log(1);
                     this.btn_false = 1;
                     var _bottle = $('.bottle_container');
