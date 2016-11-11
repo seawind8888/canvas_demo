@@ -20,7 +20,9 @@
     <img id="water" src="static/img/water.png">
 </div>
 <div class="container">
+
     <div class="tree_container">
+        <div class="red_bag_flash"></div>
         <img src="static/img/christmas_tree.png">
     </div>
     <div class="btn_container">
@@ -79,7 +81,8 @@
                 }
             },
             open_bag: function () {
-                clearInterval(this.Timerr);
+//                clearInterval(this.Timerr);
+                $(".red_bag").animate({background:"url(static/img/red_bag_open.png)"},1000);
                 $.alert({
                     content:'这是一个提示',
                     callback:function(){

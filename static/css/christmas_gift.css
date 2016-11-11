@@ -214,3 +214,25 @@ body {
     right: 0;
     bottom: 0;
 }
+
+.red_bag_flash {
+    display: inline-block;
+    position: absolute;
+    width: 2rem;
+    height: 3rem;
+    left: 7rem;
+    top:15rem;
+    z-index: 200;
+    background: url("../img/red_bag_light.png") no-repeat;
+    background-size: 100%;
+    animation: bag_flash 2s infinite linear;
+    -moz-animation: bag_flash 2s infinite linear; /* Firefox */
+    -webkit-animation: bag_flash 2s infinite linear; /* Safari and Chrome */
+    -o-animation: bag_flash 2s infinite linear; /* Opera */
+}
+
+@keyframes bag_flash {
+    0% { -webkit-box-shadow: 0 0 1rem #333; }
+    50% { -webkit-box-shadow: 0 0 5rem #e32600; }
+    100% { -webkit-box-shadow: 0 0 1rem #333; }
+}

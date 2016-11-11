@@ -1,0 +1,39 @@
+.red_bag {
+
+}
+
+.normal{
+    display: inline-block;
+    position: absolute;
+    left: 10rem;
+    top: 3rem;
+    width: 3.8rem;
+    height: 5rem;
+    background: url("../img/red_bag副本.png");
+    background-size: 100%;
+}
+
+.open{
+    opacity: 0;
+    position: absolute;
+    background: url("../img/red_bag_open.png");
+    background-size: cover;
+    width: 4rem;
+    height: 4rem;
+    left: 10rem;
+    top: 3.2rem;
+    animation: img_trans 1s ;
+    -moz-animation: img_trans 1s ; /* Firefox */
+    -webkit-animation: img_trans 1s; /* Safari and Chrome */
+    -o-animation: img_trans 1s; /* Opera */
+
+}
+
+@keyframes img_trans {
+    from {
+        background-size: cover;
+    }
+    to {
+        background-size: cover;
+    }
+}

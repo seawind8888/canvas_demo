@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet"
+          href="https://fes.wemomo.com/static/dev.css?m=ui.reset,ui.commonList,ui.commonSec,ui.btns,ui.popup,ui.icons"/>
+    <link rel="stylesheet" href="static/css/red_bag.css">
+
+</head>
+<body id="app">
+<div class="coin"></div>
+<div class="bag_container">
+    <div class="normal"></div>
+    <div class="open"></div>
+</div>
+</body>
+<script src="https://fes.wemomo.com/static/dev.js?m=zepto,zepto.fx,zepto.touch,mm/mkBridge,mm/mock-2.0,vue-1.0.24,mt.alert,mt.confirm,mt.loading-2.0,mt.notice"></script>
+<script>
+    $(window).on('click', function () {
+        $('.normal').animate({ opacity: '0'}, 100);
+        setTimeout(One(), 100);
+    });
+
+    function One() {
+        $('.open').animate({ opacity: '1'},100)
+    }
+</script>
+</html>
