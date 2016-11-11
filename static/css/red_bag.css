@@ -28,6 +28,25 @@
     -o-animation: img_trans 1s; /* Opera */
 
 }
+.coin{
+    opacity: 0;
+    z-index: 100;
+    width: 2rem;
+    height: 2rem;
+    background: url("../img/coin.png");
+    position: absolute;
+    background-size: 100%;
+    left: 10.9rem;
+    top: 3.2rem;
+
+}
+
+.coin_roll{
+    animation: coin_rotate 4s ;
+    -moz-animation: coin_rotate 4s ; /* Firefox */
+    -webkit-animation: coin_rotate 4s; /* Safari and Chrome */
+    -o-animation: coin_rotate 4s; /* Opera */
+}
 
 @keyframes img_trans {
     from {
@@ -35,5 +54,54 @@
     }
     to {
         background-size: cover;
+    }
+}
+@keyframes coin_rotate {
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    20%{
+        top:1.8rem;
+        -webkit-transform: perspective(100px);
+        transform: perspective(100px)
+    }
+    30%{
+        top:3.5rem;
+        -webkit-transform: perspective(1400px) rotateX(-180deg);
+        transform: perspective(1400px) rotateX(-180deg);
+    }
+    40%{
+        -webkit-transform: perspective(1400px) rotateX(-360deg);
+        transform: perspective(1400px) rotateX(-360deg);
+    }
+    50% {
+        -webkit-transform: perspective(1400px) rotateX(-180deg);
+        transform: perspective(1400px) rotateX(-180deg);
+    }
+    60%{
+        -webkit-transform: perspective(1400px) rotateX(-360deg);
+        transform: perspective(1400px) rotateX(-360deg);
+    }
+    70%{
+        -webkit-transform: perspective(1400px) rotateX(-180deg);
+        transform: perspective(1400px) rotateX(-180deg);
+    }
+    80%{
+        -webkit-transform: perspective(1400px) rotateX(-360deg);
+        transform: perspective(1400px) rotateX(-360deg);
+    }
+    90%{
+        -webkit-transform: perspective(1400px) rotateX(-180deg);
+        transform: perspective(1400px) rotateX(-180deg);
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform: perspective(1400px) rotateX(-360deg);
+        transform: perspective(1400px) rotateX(-360deg);
+        top:8rem;
+        opacity: 0;
     }
 }
