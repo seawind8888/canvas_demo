@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="dist/jquery.min.js"></script>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+
+</body>
+<script>
+    window.onload = main();
+    var a = 100;
+    setInterval("rotateCoin()",200);
+    function main() {
+        var canvasEl = document.getElementById('canvas');
+        var ctx =canvasEl.getContext('2d');
+//        canvasEl.width=canvasEl.clientWidth;
+//        canvasEl.height=canvasEl.clientHeight;
+        var img = new Image;
+        img.src = 'static/img/coin.png';
+        ctx.drawImage(img,20,20,100,a);
+        ctx.clearRect(20,120,100,50);
+//        ctx.clearRect(20,20,100,100);
+        window.requestAnimationFrame(main)
+    }
+    function rotateCoin() {
+        if(a==0){
+            a++;
+            if(a>=100){
+            }
+        }
+        a--;
+    }
+</script>
+</html>

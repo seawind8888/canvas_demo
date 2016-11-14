@@ -1,0 +1,139 @@
+<html><head>
+    <title>snow demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 需要在head里引入的css和js文件 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="main" id="main">
+    <canvas id="canvas" style="position: absolute; height: 100%; width:100%;" width="314" height="548"></canvas>
+</div>
+
+
+<script charset="utf-8">
+    window.onload=main;
+
+    function getRgb(r,g,b)
+    {
+        return "rgb("+ r+","+g+","+b+")";
+    }
+
+    function main()
+    {
+        var dropList=[];
+        var canvasEl = document.getElementById('canvas');
+        var ctx = canvasEl.getContext('2d');
+        var mousePos = [0, 0];
+        var backgroundColor = '#df0101';
+        var gravity=0.5;
+        canvasEl.width=canvasEl.clientWidth;
+        canvasEl.height=canvasEl.clientHeight;
+
+
+        window.onresize=function ()
+        {
+            canvasEl.width=canvasEl.clientWidth;
+            canvasEl.height=canvasEl.clientHeight;
+        }
+
+        document.getElementById('main').addEventListener('touchmove',function(e){
+            mousePos[0]=e.clientX;
+            mousePos[1]=e.clientY;
+            console.log(e.clientX);
+            console.log(e.clientY)
+        },false)//鼠标移动事件
+
+        document.getElementById('main').addEventListener('click',function(e){
+            //鼠标点击事件
+            var maxi=3*Math.floor(Math.random()*10+10);
+            for(var i=0;i<maxi;i++)
+            {
+                dropList.push(createDrop(e.clientX,e.clientY));
+            }
+
+        },false)
+
+        function createDrop(x,y)
+        {
+            var mydrop={
+                die:false,
+                posx:x,
+                posy:y,
+                vx:(Math.random()-0.5)*8*2,
+                vy:(Math.random()*(-6)-3)*2,
+                radius:Math.random()*2*5,
+                color:255
+            };
+            return mydrop;
+        }
+
+        window.requestAnimationFrame(update);
+        function update()
+        {
+
+            if(dropList.length>0)
+            {
+                dropList.forEach(function (e) {
+                    e.posx=e.posx+e.vx;
+                    e.vy=e.vy+gravity;
+                    e.posy=e.posy+e.vy;
+                    //e.radius=e.radius+1;
+                    e.color=e.color-6;
+                    if(e.posy>canvasEl.clientHeight)
+                    {
+                        e.die=true;
+                    }
+                });
+            }
+            for(var i=dropList.length-1;i>=0;i--)
+            {
+                if(dropList[i].die){
+                    dropList.splice(i,1);
+                }
+            }
+
+
+            render();
+            window.requestAnimationFrame(update);
+        }
+        function  render()
+        {
+            var img = new Image();
+            img.src = 'static/img/coin.png';
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
+            ctx.lineWidth=2;
+
+            dropList.forEach(function (e) {
+                //ctx.strokeStyle = getRgb(e.color,e.color,e.color);
+                ctx.beginPath();
+                //ctx.arc(e.posx,e.posy,e.radius,Math.random()*2*Math.PI,2*Math.PI,false);
+//                ctx.drawImage(img,e.posx,e.posy,20,20);
+//                ctx.arc(e.posx,e.posy,e.radius,0,360,0);
+//                ctx.fillStyle="white";
+                ctx.fill();
+                //ctx.stroke();
+            });
+
+
+        }
+
+
+    }
+
+
+
+
+</script>
+
+</body></html>
